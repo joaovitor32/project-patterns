@@ -1,0 +1,81 @@
+{
+  "env": {
+    "es6": true,
+    "node": true,
+    "jest": true,
+    "es2020": true
+  },
+  "root": true,
+  "extends": [
+    "airbnb",
+    "plugin:import/typescript",
+    "prettier",
+    "eslint:recommended"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint", "prettier", "import-helpers"],
+  "rules": {
+    "no-shadow": 0,
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "no-console": "off",
+    "no-use-before-define": "off",
+    "no-useless-constructor": "off",
+    "camelcase": "off",
+    "@typescript-eslint/ban-types": "off",
+    "prettier/prettier": "error",
+    "@typescript-eslint/camelcase": "off",
+    "no-param-reassign": "off",
+    "class-methods-use-this": "off",
+    "no-unused-vars": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never"
+      }
+    ],
+    "import/no-cycle": [2, { "ignoreExternal": false }],
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "always",
+        "groups": [
+          "module",
+          "/modules/",
+          "/services/",
+          "/shared/",
+          "/config/",
+          "/dtos/",
+          "/models/",
+          ["parent", "sibling", "index"]
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "ignoreCase": true
+        }
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {},
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "moduleDirectory": ["node_modules", "src/"]
+      }
+    }
+  }
+}
